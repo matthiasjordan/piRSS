@@ -1,0 +1,36 @@
+Configure workspace (e.g. SDK location, Java compiler compliance level, JDK 1.5 location)
+
+Clone repository to /tmp/pirss.repo
+
+Import -> existing project
+- select root directory /tmp/pirss.repo
+- copy into workspace
+- finish
+
+	or:	New Android project
+		- create from existing source
+		- point to /tmp/pirss.repo
+		- target API 4
+		- next
+		- don't create test project
+		- finish
+
+Project compiles
+
+If there are errors: 
+- try and refresh the project
+- clean, build all
+
+Team -> Share Project -> Git -> "Use or create repository in parent folder of project" 
+
+New->Other->Android Test Project
+- Name: something like "tests"
+- Uncheck "use default location", point location to directory "tests" in above created project's root
+- Test Target: existing project: select above project
+- finish
+- sure you want to proceed? -> Yes, you are.
+- resource already exists: AndroidManifest.xml -> OK (we kind of expected that)
+
+Errors with importing the test project can sometimes be resolved by deleting the test project and importing it again and/or organizing imports in Java files marked defective. The test project is configured to assume that the project to test is called "RSS". If your project has a different name, go to the test project's properties and under "Java Build Path" fix the project dependencies---e.g. by deleting the missing project from the list and adding the one that is actually there.
+
+
