@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+	<channel>
+		<title>Foo Blog</title>
+		<link>http://blog.example.com/</link>
+		<description>Foo bar</description>
+		<language>de</language>
+		<item>
+			<title>Description 1.</title>
+			<link>http://blog.example.com/?ts=1</link>
+			<guid>http://blog.example.com/?ts=1</guid>
+		</item>
+	</channel>
+</rss>

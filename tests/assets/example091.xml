@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rss version="0.91">
+	<channel>
+		<title>Foo title</title>
+		<link>http://example.com/</link>
+		<description>News</description>
+		<language>de</language>
+		<item>
+			<title>Title 1</title>
+			<description>
+				<p>Description with HTML 1.</p>
+			</description>
+			<link>http://example.com/rss?item=1
+			</link>
+		</item>
+		<item>
+			<title>Title 2</title>
+			<description>
+				<p>Description 2 line 1
+					description 2 line 2
+					description 2 line 3.</p>
+				<p>description 2 line 4
+					</p>
+			</description>
+			<link>http://example.com/rss?item=2
+			</link>
+		</item>
+	</channel>
+</rss>

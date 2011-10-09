@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Foo RSS feed</title>
+    <link>http://mobil.example.com</link>
+    <description>Foo mobil RSS</description>
+    <language>de</language>
+    <dc:language>de</dc:language>
+    <image>
+      <title>Foo mobil News</title>
+      <url>http://mobil.example.com/logo.gif</url>
+      <link>http://mobil.example.com</link>
+    </image>
+    <item>
+      <title>News item title 1</title>
+      <link>http://mobil.example.com/l/rss?id=1</link>
+      <description>Foo news item title description 1 äöüÄÖÜß</description>
+      <enclosure url="http://mobil.example.com/image_1.jpg" type="image/jpeg" />
+      <pubDate>Thu, 14 Apr 2011 10:03:00 GMT</pubDate>
+      <guid>http://mobil.example.com/g/rss?id=1</guid>
+      <dc:date>2011-04-14T10:03:00Z</dc:date>
+    </item>
+    <item>
+      <title>News item title 2</title>
+      <link>http://mobil.example.com/l/rss?id=2</link>
+      <description>Foo news item title description 2</description>
+      <pubDate>Thu, 14 Apr 2011 07:20:00 GMT</pubDate>
+      <guid>http://mobil.example.com/g/rss?id=2</guid>
+      <dc:date>2011-04-14T07:20:00Z</dc:date>
+    </item>
+  </channel>
+</rss>
+

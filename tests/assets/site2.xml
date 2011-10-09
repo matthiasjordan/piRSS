@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2full.xsl"?><?xml-stylesheet type="text/css" media="screen" href="http://feeds.sciencedaily.com/~d/styles/itemcontent.css"?><rss xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" version="2.0">
+		<channel>
+			<title>FooDaily News</title>
+			<link>http://example.com/news/</link>
+			<description>Feed description.</description>
+			<language>en-us</language>
+			<pubDate>Thu, 28 Jul 2011 12:05:01 EDT</pubDate>
+			<lastBuildDate>Thu, 28 Jul 2011 12:05:01 EDT</lastBuildDate>
+			<ttl>60</ttl>
+			<image>
+				<title>Foo Daily News Image title</title>
+				<url>http://example.com/news/logosmall.gif</url>
+				<link>http://example.com/news/</link>
+				<description>For more foo articles, visit FooDaily.</description>
+			</image>
+			
+			<feedburner:info uri="foodaily" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://www.example.com/rss/newsfeed.xml" /><item>
+				<title>Title 1</title>
+				<link>http://feeds.example.com/l/feeds/1</link>
+				<description>Description 1</description>
+				<pubDate>Thu, 28 Jul 2011 10:31:31 EDT</pubDate>
+				<guid isPermaLink="false">http://feeds.example.com/g/feeds/1</guid>
+			<feedburner:origLink>http://feeds.example.com/o/feeds/1</feedburner:origLink></item>
+			<item>
+				<title>Title 2</title>
+				<link>http://feeds.example.com/l/feeds/2</link>
+				<description>Description 2</description>
+				<pubDate>Thu, 28 Jul 2011 09:59:59 EDT</pubDate>
+				<guid isPermaLink="false">http://feeds.example.com/g/feeds/2</guid>
+			<feedburner:origLink>http://feeds.example.com/o/feeds/2</feedburner:origLink></item>
+		</channel>
+	</rss>

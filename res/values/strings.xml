@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">piRSS</string>
+<string name="app_title">piRSS 1.0</string>
+
+<string name="mainprefs_autopoll_summary">Globally enable refreshing the feeds that are configured to be refreshed automatically</string>
+<string name="mainprefs_autopoll">Poll automatically</string>
+
+<string name="feedlist_menu_add">&quot;Add Feed&quot;</string>
+<string name="feedlist_menu_reload">Reload</string>
+<string name="feedlist_menu_prefs">Preferences</string>
+<string name="feedprops_title">Add feed</string>
+<string name="feedprops_url_title">URL:</string>
+<string name="button_save">Save</string>
+<string name="button_ok">OK</string>
+<string name="button_cancel">Cancel</string>
+<string name="addfeed_url_template">http://</string>
+<string name="feedprops_howto">Edit the name and/or the URL of the RSS feed. Tap &quot;Save&quot; to save the feed.</string>
+<string name="itemlist_menu_del">Delete</string>
+<string name="feedlist_label_new_feed">New Feed</string>
+<string name="itemlist_menu_markallread">Mark all as read</string>
+<string name="itemlist_menu_delread">Delete read items</string>
+<string name="default_rss_url">http://www.laquadrature.net/en/rss.xml</string>
+<string name="default_rss_name">La Quadrature du Net</string>
+
+<string name="addfeed_url_title">URL:</string>
+<string name="addfeed_howto">Enter the URL of the RSS feed to import. Tap &quot;Save&quot; to save the feed.</string>
+<string name="addfeed_title">Add feed</string>
+<string name="feedlist_context_edit">Edit feed</string>
+<string name="feedlist_context_deletefeed">Delete feed</string>
+<string name="deletefeed_question">Do you really want to delete this feed?</string>
+<string name="feedprops_autopoll_title">Poll automatically</string>
+<string name="feedlist_menu_show_all">Show all</string>
+<string name="itemlist_title_all_feeds">All feeds</string>
+<string-array name="feedprops_autopoll_freqs">
+<item>never</item>
+<item>1 min</item>
+<item>5 mins</item>
+<item>10 mins</item>
+<item>15 mins</item>
+<item>20 mins</item>
+<item>30 mins</item>
+<item>1 hour</item>
+<item>2 hours</item>
+<item>4 hours</item>
+<item>8 hours</item>
+<item>1 days</item>
+<item>3 days</item>
+<item>7 days</item>
+</string-array>
+<string name="feedprops_content_convert_title">Convert and show as:</string>
+<string-array name="feedprops_content_convert_types"><item>As is</item>
+<item>HTML stripped</item>
+<item>Full HTML</item>
+</string-array>
+<string name="usernot_title">Could not download feeds</string>
+<string name="usernot_text">This is probably a network problem.</string>
+<string name="itemlist_context_keeper">That\'s a keeper!</string>
+<string name="itemlist_context_unkeep">Not a keeper</string>
+<string name="item_menu_keeper">Make this a keeper!</string>
+<string name="item_menu_unkeep">Unkeep this</string>
+<string name="about_text">piRSS 1.0\n
+\nCopyright (c) 2011 Matthias Jordan
+\nThis is free software placed under the GNU GPLv3 and donation ware.
+\n
+\nAll proceeds from this app are donated to
+\n<a href="http://www.laquadrature.net">La Quadrature du Net</a>.
+\n
+\nFor more information see the <a href="https://github.com/matthiasjordan/piRSS">project page</a>.
+</string>
+<string name="mainprefs_cat_title_info">Information</string>
+<string name="mainprefs_about">About</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+<CheckBoxPreference 
+	android:key="mainprefs_autopoll" 
+	android:summary="@string/mainprefs_autopoll_summary" 
+	android:title="@string/mainprefs_autopoll"/>
+	<PreferenceCategory
+	  android:title="@string/mainprefs_cat_title_info"
+	  >
+		<Preference
+		  android:key="@+id/mainprefs_about"
+		  android:title="@string/mainprefs_about"
+		>
+			<intent 
+			  android:action="android.intent.action.VIEW"
+			  android:data="aboutpirss:///"
+			/>
+		</Preference>
+	</PreferenceCategory>
+</PreferenceScreen>

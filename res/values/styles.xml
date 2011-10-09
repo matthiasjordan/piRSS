@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="Base" parent="@android:style/TextAppearance.Medium">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:textColor">#ffffff</item>
+		<item name="android:typeface">serif</item>
+		<item name="android:textSize">6.0pt</item>
+	</style>
+
+	<style name="Base.ItemHeadline">
+		<item name="android:textSize">8.0pt</item>
+	</style>
+
+	<style name="Base.ItemHeadline.Unread">
+		<item name="android:textStyle">bold</item>
+	</style>
+
+	<style name="Base.ItemHeadline.Read">
+		<item name="android:textStyle"></item>
+	</style>
+
+	<style name="Base.ItemBody">
+		<item name="android:textSize">6.5pt</item>
+	</style>
+
+	<style name="Base.ItemDate">
+		<item name="android:textSize">5pt</item>
+	</style>
+	
+	<style name="Base.FeedName">
+		<item name="android:textStyle">bold</item>
+		<item name="android:textSize">8.0pt</item>
+	</style>
+
+	<style name="Base.FeedInfo">
+		<item name="android:textSize">6.0pt</item>
+	</style>
+	
+	<color name="Keeper">#ff2a497c</color>
+	
+</resources>

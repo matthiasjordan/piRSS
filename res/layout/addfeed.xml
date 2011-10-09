@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/layout_root"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent"
+              android:padding="10dp"
+              >
+	<TextView android:id="@+id/addfeed_howto" 
+		android:text="@string/addfeed_howto"
+		android:paddingBottom="10.0sp" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content">
+	</TextView>
+	<TextView android:id="@+id/addfeed_url_title" 
+		android:text="@string/addfeed_url_title" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content">
+	</TextView>
+	<EditText android:id="@+id/addfeed_url" 
+		android:text="@+id/addfeed_url" 
+		android:inputType="textUri"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+		<requestFocus/>
+	</EditText>
+	<LinearLayout android:id="@+id/LinearLayout01" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content">
+		<Button android:id="@+id/addfeed_button_save" 
+			android:text="@string/button_save"
+			android:layout_weight="1" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</Button>
+		<Button android:id="@+id/addfeed_button_cancel" 
+			android:text="@string/button_cancel" 
+			android:layout_weight="1" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+		</Button>
+	</LinearLayout>
+
+</LinearLayout>

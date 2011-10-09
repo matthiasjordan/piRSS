@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>Dummy News</title>
+	<subtitle>Dummy subtitle a</subtitle>
+	<link href="http://www.example.com/" />
+	<link rel="self" href="http://www.example.com/atom.xml" />
+	<updated>2011-04-17T22:19:04+02:00</updated>
+	<author>
+		<name>Dummy Author</name>
+	</author>
+	<id>http://www.example.com/newsticker</id>
+
+
+	<entry>
+		<title>News item title 1</title>
+		<link href="http://www.example.com/newsticker/foo1" />
+		<id>http://www.example.com/u/newsticker/foo1</id>
+		<published>2011-04-17T16:54:00+02:00</published>
+		<updated>2011-04-17T22:19:04+02:00</updated>
+	
+	</entry>
+
+	<entry>
+		<title>News item title 2</title>
+		<link href="http://www.example.com/newsticker/foo2" />
+		<id>http://www.example.com/u/newsticker/foo2</id>
+		<published>2011-04-17T15:34:00+02:00</published>
+		<updated>2011-04-17T15:35:45+02:00</updated>
+	
+	</entry>
+
+	<entry>
+		<title>News item title 2</title>
+		<link href="http://www.example.com/newsticker/foo3" />
+		<id>http://www.example.com/u/newsticker/foo3</id>
+		<published>2011-04-17T15:03:00+02:00</published>
+		<updated>2011-04-17T15:03:53+02:00</updated>
+	
+	</entry>
+
+	<entry>
+		<title>News item title 2</title>
+		<link href="http://www.example.com/newsticker/foo4" />
+		<id>http://www.example.com/u/newsticker/foo4</id>
+		<published>2011-04-17T14:06:00+02:00</published>
+		<updated>2011-04-17T14:08:05+02:00</updated>
+	
+	</entry>
+
+</feed>

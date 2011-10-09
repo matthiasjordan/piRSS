@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="de.codefu.android.rss" android:versionCode="1"
+	android:versionName="1.0">
+	<application android:icon="@drawable/icon" android:label="@string/app_name">
+		<activity android:name=".feedlist.FeedList" android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+			<intent-filter>
+			    <action android:name="android.intent.action.VIEW"/>
+			    <category android:name="android.intent.category.DEFAULT"/>
+			    <category android:name="android.intent.category.BROWSABLE"/>
+			    <data android:scheme="http"/>
+			    <data android:host="*"/>
+			    <data android:pathPattern=".*/news\\.xml"/>
+			    <data android:pathPattern=".*/rss\\.xml"/>
+			    <data android:pathPattern="news\\.xml"/>
+			    <data android:pathPattern="rss\\.xml"/>
+			    <data android:pathPattern=".*\\.rss"/>
+			</intent-filter>
+			<intent-filter>
+			    <action android:name="android.intent.action.VIEW"/>
+			    <category android:name="android.intent.category.DEFAULT"/>
+			    <category android:name="android.intent.category.BROWSABLE"/>
+			    <data android:scheme="http"/>
+			    <data android:mimeType="text/xml"/>
+			    <data android:mimeType="application/rss+xml"/>
+			    <data android:mimeType="application/atom+xml"/>
+			    <data android:mimeType="application/xml"/>
+			</intent-filter>
+		</activity>
+		<activity android:name=".itemlist.ItemList" android:label="@string/app_name" />
+		<activity android:name=".item.ItemAct" android:label="@string/app_name" />
+		<activity android:name=".feedprops.FeedProps" android:label="@string/app_name"/>
+		<activity android:name=".feedprops.AddFeed" android:label="@string/app_name"/>
+		<activity android:name=".MainPreferences" android:label="@string/app_name" />
+		<activity android:name=".AboutActivity" android:label="@string/app_name" android:exported="false">
+			<intent-filter>
+			    <action android:name="android.intent.action.VIEW"/>
+			    <category android:name="android.intent.category.DEFAULT"/>
+			    <data android:scheme="aboutpirss"/>
+			</intent-filter>
+		</activity>
+		<service android:name=".updateservice.UpdateService" />
+		<service android:name=".updateservice.InsertService" />
+		<service android:name=".updateservice.AutoPollService" />
+		<receiver android:name=".BootCompletedHandler">
+			<intent-filter android:label="android.intent.action.BOOT_COMPLETED">
+				<action android:name="android.intent.action.BOOT_COMPLETED"></action>
+			</intent-filter>
+			<intent-filter android:label="android.intent.action.TIME_SET">
+				<action android:name="android.intent.action.TIME_SET"></action>
+			</intent-filter>
+		</receiver>
+		<receiver android:name=".widgets.SimpleWidget" 
+		  android:icon="@drawable/icon" 
+		  android:label="@string/app_name"
+		  >
+		    <intent-filter>
+		        <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+		    </intent-filter>
+		    <intent-filter>
+		        <action android:name="de.codefu.android.rss.action.datachanged" />
+		    </intent-filter>
+		    <meta-data android:name="android.appwidget.provider"
+               android:resource="@xml/simplewidget" />
+		</receiver>		
+		<provider android:name=".db.ItemProvider"
+			android:authorities="de.codefu.rss.itemprovider" android:exported="false" />
+		<provider android:name=".db.FeedProvider"
+			android:authorities="de.codefu.rss.feedprovider" android:exported="false" />
+	</application>
+	<uses-sdk android:minSdkVersion="4" />
+
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+</manifest> 

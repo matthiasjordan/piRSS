@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="mainprefs_autopoll_summary">Die Feeds automatisch abrufen, für die ein automatisches Abrufen konfiguriert ist.</string>
+<string name="mainprefs_autopoll">Automatisch abrufen</string>
+<string name="feedlist_menu_add">&quot;Feed hinzufügen&quot;</string>
+<string name="feedlist_menu_reload">Neu laden</string>
+<string name="feedlist_menu_prefs">Einstellungen</string>
+<string name="feedprops_title">Feed editieren</string>
+<string name="feedprops_url_title">URL:</string>
+<string name="button_save">Speichern</string>
+<string name="button_ok">OK</string>
+<string name="button_cancel">Abbrechen</string>
+<string name="addfeed_url_template">http://</string>
+<string name="feedprops_howto">Den Namen und/oder die URL des RSS-Feeds ändern. &quot;Speichern&quot; drücken, um die Einstellungen zu speichern.</string>
+<string name="itemlist_menu_del">Löschen</string>
+<string name="feedlist_label_new_feed">Neuer Feed</string>
+<string name="itemlist_menu_markallread">Alle als gelesen markieren</string>
+<string name="itemlist_menu_delread">Gelesene löschen</string>
+<string name="default_rss_url">http://www.laquadrature.net/en/rss.xml</string>
+<string name="default_rss_name">La Quadrature du Net</string>
+
+<string name="addfeed_url_title">URL:</string>
+<string name="addfeed_howto">Die URL des RSS-Feeds eingeben, der importiert werden soll. &quot;Speichern&quot; drücken, um den Feed zu speichern.</string>
+<string name="addfeed_title">Neuen Feed hinzufügen</string>
+<string name="feedlist_context_edit">Feed ändern</string>
+<string name="feedlist_context_deletefeed">Feed löschen</string>
+<string name="deletefeed_question">Soll dieser Feed wirklich gelöscht werden?</string>
+<string name="feedprops_autopoll_title">Automatisches Abrufen</string>
+<string name="feedlist_menu_show_all">Alle anzeigen</string>
+<string name="itemlist_title_all_feeds">Alle Feeds</string>
+<string-array name="feedprops_autopoll_freqs">
+<item>nie</item>
+<item>1 Minute</item>
+<item>5 Minuten</item>
+<item>10 Minuten</item>
+<item>15 Minuten</item>
+<item>20 Minuten</item>
+<item>30 Minuten</item>
+<item>1 Stunde</item>
+<item>2 Stunden</item>
+<item>4 Stunden</item>
+<item>8 Stunden</item>
+<item>1 Tag</item>
+<item>3 Tage</item>
+<item>7 Tage</item>
+</string-array>
+<string name="feedprops_content_convert_title">Konvertieren und anzeigen als:</string>
+<string-array name="feedprops_content_convert_types"><item>Unverändert</item>
+<item>HTML entfernt</item>
+<item>Komplettes HTML</item>
+</string-array>
+<string name="usernot_title">Konnte Feeds nicht aktualisieren</string>
+<string name="usernot_text">Es gibt vermutlich ein Netzwerk-Problem.</string>
+<string name="itemlist_context_keeper">Will ich behalten!</string>
+<string name="itemlist_context_unkeep">Nicht mehr behalten</string>
+<string name="item_menu_keeper">Will ich behalten!</string>
+<string name="item_menu_unkeep">Nicht mehr behalten</string>
+<string name="about_text">piRSS 1.0\n
+\nCopyright (c) 2011 Matthias Jordan
+\nDies ist freie Software, veröffentlicht unter der GNU GPLv3, und donation ware.
+\n
+\nAlle Einnahmen gehen an
+\n<a href="http://www.laquadrature.net">La Quadrature du Net</a>.
+\n
+\nFür mehr Informationen siehe <a href="https://github.com/matthiasjordan/piRSS">Projekt-Seite</a>.
+</string>
+<string name="mainprefs_cat_title_info">Informationen</string>
+<string name="mainprefs_about">Über piRSS</string>
+</resources>

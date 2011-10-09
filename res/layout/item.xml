@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical">
+  
+	<ScrollView 
+	  android:id="@+id/item_scrollview"
+	  android:layout_weight="1"
+	  android:layout_gravity="top"
+	  android:layout_width="fill_parent" 
+	  android:layout_height="wrap_content">
+	
+		<LinearLayout 
+		  android:orientation="vertical" 
+		  android:layout_width="fill_parent" 
+		  android:layout_height="wrap_content" 
+		  android:id="@+id/LinearLayout01"
+		  android:layout_weight="1" android:layout_gravity="top">
+			<TextView 
+			  android:text="Headline" 
+			  android:id="@+id/item_headline" 
+			  android:layout_width="fill_parent" 
+			  android:layout_height="wrap_content"/>
+			<TextView 
+			  android:text="Headline" 
+			  android:id="@+id/item_dateline" 
+			  android:layout_width="fill_parent" 
+			  android:layout_height="wrap_content"/>
+			<TextView 
+			  android:text="Content" 
+			  android:id="@+id/item_content" 
+			  android:layout_width="fill_parent" 
+			  android:layout_height="wrap_content"
+			  android:layout_weight="1" android:layout_gravity="bottom"/>
+			<WebView 
+			  xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:id="@+id/item_content_web"
+			  android:layout_width="fill_parent"
+			  android:layout_height="fill_parent"/>
+		</LinearLayout>
+	</ScrollView>
+	
+	<LinearLayout
+	  xmlns:android="http://schemas.android.com/apk/res/android"
+	  android:layout_width="fill_parent"
+	  android:layout_height="wrap_content"
+	  android:orientation="horizontal">
+		<Button 
+		  android:layout_weight="1"
+		  android:text="Browser" 
+		  android:id="@+id/item_button_browser" 
+		  android:layout_width="wrap_content" 
+		  android:layout_height="wrap_content"/> 
+		<Button 
+		  android:layout_weight="1"
+		  android:text="Previous" 
+		  android:id="@+id/item_button_previous" 
+		  android:layout_width="wrap_content" 
+		  android:layout_height="wrap_content"/>
+		<Button 
+		  android:layout_weight="1"
+		  android:text="Next" 
+		  android:id="@+id/item_button_next" 
+		  android:layout_width="wrap_content" 
+		  android:layout_height="wrap_content"/>
+	</LinearLayout>
+</LinearLayout>
