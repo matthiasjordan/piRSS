@@ -23,6 +23,7 @@ import java.io.InputStream;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.TimeZone;
 
 import junit.framework.Assert;
 import android.content.res.AssetManager;
@@ -57,7 +58,7 @@ public class InsertServiceTest extends InstrumentationTestCase {
     private class TestableFeedHandler extends FeedHandler {
 
         public TestableFeedHandler(final long feedId) {
-            super(feedId, 0, new TestableFeedHandlerClient());
+            super(feedId, 0, new TestableFeedHandlerClient(), TimeZone.getTimeZone("PST"));
         }
     }
 

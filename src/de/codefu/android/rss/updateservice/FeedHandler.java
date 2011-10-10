@@ -20,6 +20,7 @@ package de.codefu.android.rss.updateservice;
 
 import java.text.ParseException;
 import java.util.Stack;
+import java.util.TimeZone;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -72,13 +73,16 @@ class FeedHandler extends DefaultHandler {
     private long feedId;
     private int cleanHtml;
 
+    private TimeZone timezone;
 
-    public FeedHandler(final long feedId, int cleanHtml, FeedHandlerClient fhc) {
+
+    public FeedHandler(final long feedId, int cleanHtml, FeedHandlerClient fhc, TimeZone tz) {
         this.feedId = feedId;
         this.cleanHtml = cleanHtml;
         this.fhc = fhc;
         this.elements = new Stack<String>();
         this.errorOccurred = false;
+        this.timezone = tz;
     }
 
 
@@ -198,7 +202,7 @@ class FeedHandler extends DefaultHandler {
             else if (E_PUB_DATE.equals(elements.peek())) {
                 if (item != null) {
                     try {
-                        item.date = DateFormat3339.parse(new String(ch, start, length));
+                        item.date = DateFormat3339.parse(new String(ch, start, length), timezone);
                     }
                     catch (ParseException e) {
                     }
@@ -255,7 +259,7 @@ class FeedHandler extends DefaultHandler {
                     else if (E_PUB_DATE.equals(localName) || "published".equals(localName) || "date".equals(localName)) {
                         if (item != null) {
                             try {
-                                item.date = DateFormat3339.parse(endCollecting());
+                                item.date = DateFormat3339.parse(endCollecting(), timezone);
                             }
                             catch (ParseException e) {
                             }

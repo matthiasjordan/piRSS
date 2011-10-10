@@ -20,6 +20,7 @@ package de.codefu.android.rss.updateservice;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.TimeZone;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -64,7 +65,8 @@ public class InsertService extends IntentService implements FeedHandlerClient {
 
             final int cleanHtml = getCleanHtml(ic.feedId);
             if (cleanHtml != -1) {
-                process(ic.content, ic.feedId, new FeedHandler(ic.feedId, cleanHtml, this));
+                final TimeZone tz = TimeZone.getDefault();
+                process(ic.content, ic.feedId, new FeedHandler(ic.feedId, cleanHtml, this, tz));
                 ServiceComm.sendDataChangedBroadcast(this);
             }
         }

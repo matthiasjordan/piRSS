@@ -20,11 +20,12 @@ package de.codefu.android.rss.updateservice;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
+
+import android.util.Log;
 
 
 
@@ -41,10 +42,10 @@ class DateFormat3339 {
     private static final SimpleDateFormat timef = new SimpleDateFormat("HH:mm:ss");
 
 
-    public static Date parse(String string) throws ParseException {
+    public static Date parse(String string, TimeZone tz) throws ParseException {
         Date out;
         try {
-            out = parseRFC3339(string);
+            out = parseRFC3339(string, tz);
         }
         catch (ParseException e) {
             out = parseXX(string);
@@ -54,7 +55,7 @@ class DateFormat3339 {
 
 
     // 2011-04-17T22:19:04+02:00
-    public static Date parseRFC3339(String string) throws ParseException {
+    public static Date parseRFC3339(String string, TimeZone tz) throws ParseException {
         string = string.toUpperCase();
         String[] parts = string.split("T");
         if (parts.length != 2) {
@@ -77,10 +78,6 @@ class DateFormat3339 {
             timeOffsetPos += 2;
         }
 
-        date.setHours(time.getHours());
-        date.setMinutes(time.getMinutes());
-        date.setSeconds(time.getSeconds());
-
         final TimeZone timezone;
         final String timeOffset = fullTime.substring(timeOffsetPos);
         final char firstChar = timeOffset.charAt(0);
@@ -92,12 +89,10 @@ class DateFormat3339 {
         }
 
         GregorianCalendar c = new GregorianCalendar(timezone);
-        c.setLenient(true);
-        c.clear();
-        c.setTime(date);
-        c.set(Calendar.HOUR_OF_DAY, time.getHours());
-        c.set(Calendar.MINUTE, time.getMinutes());
-        c.set(Calendar.SECOND, time.getSeconds());
+//        c.setLenient(true);
+//        c.clear();
+        c.set(date.getYear() + 1900, date.getMonth(), date.getDate(), time.getHours(), time.getMinutes(), time.getSeconds());
+        Log.i("dc", "Date: " + c.getTime());
 
         return c.getTime();
     }
