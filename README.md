@@ -21,12 +21,12 @@ Binaries
 ========
 
 So, where can you download binaries? The ready-to-use Android app is
-available on Android Market for a small fee. The proceeds of the sales 
-will be donated to <a href="http://laquadrature.net">La Quadrature du Net</a> 
+available on Android Market.
+
+Please consider donating to <a href="http://laquadrature.net">La Quadrature du Net</a> 
 to help them lobby the EU for better legislation concerning (digital) civil 
 rights. 
 
 You can also build piRSS yourself but then you are basically all set to
-join the development team and this is also pretty cool, eh?
+join the development team and that would be pretty cool, too.
 
-  

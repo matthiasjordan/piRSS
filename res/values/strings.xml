@@ -61,9 +61,9 @@
 <string name="item_menu_unkeep">Unkeep this</string>
 <string name="about_text">piRSS 1.0\n
 \nCopyright (c) 2011 Matthias Jordan
-\nThis is free software placed under the GNU GPLv3 and donation ware.
+\nThis is free software placed under the GNU GPLv3.
 \n
-\nAll proceeds from this app are donated to
+\nPlease consider donating to
 \n<a href="http://www.laquadrature.net">La Quadrature du Net</a>.
 \n
 \nFor more information see the <a href="https://github.com/matthiasjordan/piRSS">project page</a>.
