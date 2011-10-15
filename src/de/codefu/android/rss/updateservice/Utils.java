@@ -22,6 +22,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import android.text.Html;
+
 
 
 /**
@@ -66,7 +68,9 @@ public class Utils {
         if (c == null) {
             return null;
         }
-        return c.replaceAll("<[\\s\\S]*?>", "").trim();
+        final String tmp = c.replaceAll("<[\\s\\S]*?>", "").trim();
+        final String out = Html.fromHtml(tmp).toString();
+        return out;
     }
 
 }
