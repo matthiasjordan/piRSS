@@ -97,8 +97,11 @@ public class ItemListAdapter extends SimpleCursorAdapter {
         final TextView contentView = (TextView) view.findViewById(R.id.itemlist_row_content);
         final String content = cursor.getString(cursor.getColumnIndex(ItemProvider.ITEMS_COL_CONTENT));
         if (content != null) {
+            final String cleaned = Utils.htmlClean(content);
+            final int end = Math.min(200, cleaned.length());
+            final String cleanedShort = cleaned.substring(0, end);
             contentView.setMaxLines(2);
-            contentView.setText(Utils.htmlClean(content));
+            contentView.setText(cleanedShort);
             contentView.setTextAppearance(context, R.style.Base_ItemBody);
         }
         else {
