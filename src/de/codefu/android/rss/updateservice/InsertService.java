@@ -51,6 +51,9 @@ import de.codefu.android.rss.db.ItemProvider;
  */
 public class InsertService extends IntentService implements FeedHandlerClient {
 
+    private static final int VALUE_UNSET = -1;
+
+
     public InsertService() {
         super("InsertService");
     }
@@ -64,7 +67,7 @@ public class InsertService extends IntentService implements FeedHandlerClient {
             Log.i("InsertService", "Inserting content for feed " + ic.feedId);
 
             final int cleanHtml = getCleanHtml(ic.feedId);
-            if (cleanHtml != -1) {
+            if (cleanHtml != VALUE_UNSET) {
                 final TimeZone tz = TimeZone.getDefault();
                 process(ic.content, ic.feedId, new FeedHandler(ic.feedId, cleanHtml, this, tz));
                 ServiceComm.sendDataChangedBroadcast(this);
@@ -78,7 +81,7 @@ public class InsertService extends IntentService implements FeedHandlerClient {
     private int getCleanHtml(final long feedId) {
         final Uri uri = ContentUris.withAppendedId(FeedProvider.CONTENT_URI, feedId);
         final Cursor c = getContentResolver().query(uri, null, null, null, null);
-        int cleanHtml = -1;
+        int cleanHtml = VALUE_UNSET;
         if (c != null) {
             if (c.moveToFirst()) {
                 cleanHtml = c.getInt(c.getColumnIndex(FeedProvider.FEEDS_COL_CLEANHTML));
