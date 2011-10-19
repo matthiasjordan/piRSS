@@ -25,8 +25,6 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import android.util.Log;
-
 
 
 /**
@@ -89,10 +87,7 @@ class DateFormat3339 {
         }
 
         GregorianCalendar c = new GregorianCalendar(timezone);
-//        c.setLenient(true);
-//        c.clear();
         c.set(date.getYear() + 1900, date.getMonth(), date.getDate(), time.getHours(), time.getMinutes(), time.getSeconds());
-        Log.i("dc", "Date: " + c.getTime());
 
         return c.getTime();
     }
