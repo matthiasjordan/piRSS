@@ -96,19 +96,37 @@ public class ItemAct extends Activity {
         final Uri uri = ContentUris.withAppendedId(ItemProvider.CONTENT_URI_FEED, feedId);
         itemC = managedQuery(uri, null, null, null, null);
 
-        moveCursorToItem(itemC, id);
+        moveCursorToItem();
 
         showItem();
     }
 
 
-    private void moveCursorToItem(Cursor itemC, long id2) {
-        itemC.moveToFirst();
+    private void moveCursorToItem() {
+        if (itemC.moveToFirst()) {
 
-        final int idAttrPos = itemC.getColumnIndex("_id");
+            final int idAttrPos = itemC.getColumnIndex("_id");
 
-        while ((itemC.getLong(idAttrPos) != id2) && (!itemC.isLast())) {
-            itemC.moveToNext();
+            if (idAttrPos == -1) {
+                Log.e("ItemAct", "Tried to show item " + id + " from feed " + feedId + " but id column is unknown.");
+                finish();
+                return;
+            }
+
+            while ((itemC.getLong(idAttrPos) != id) && (!itemC.isLast())) {
+                itemC.moveToNext();
+            }
+
+            if (itemC.getLong(idAttrPos) != id) {
+                Log.e("ItemAct", "Tried to show item " + id + " from feed " + feedId + " but item is unknown.");
+                finish();
+                return;
+            }
+        }
+        else {
+            Log.e("ItemAct", "Cursor empty.");
+            finish();
+            return;
         }
     }
 
@@ -139,8 +157,7 @@ public class ItemAct extends Activity {
     }
 
 
-    private void showItem() {
-
+    private void showItem() throws IllegalArgumentException {
         final String h;
         final String c;
 
