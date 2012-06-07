@@ -17,14 +17,14 @@
 		  android:layout_width="fill_parent" 
 		  android:layout_height="wrap_content" 
 		  android:id="@+id/LinearLayout01"
-		  android:layout_weight="1" android:layout_gravity="top">
+		  android:layout_gravity="top">
 			<TextView 
 			  android:text="Headline" 
 			  android:id="@+id/item_headline" 
 			  android:layout_width="fill_parent" 
 			  android:layout_height="wrap_content"/>
 			<TextView 
-			  android:text="Headline" 
+			  android:text="Dateline" 
 			  android:id="@+id/item_dateline" 
 			  android:layout_width="fill_parent" 
 			  android:layout_height="wrap_content"/>

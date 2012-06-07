@@ -11,7 +11,7 @@
 	  android:layout_height="fill_parent"
 	>
 		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/layout_root"
+              android:id="@+id/scrollviewcontent"
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
@@ -30,6 +30,7 @@
 			</TextView>
 			<EditText android:id="@+id/feedprops_name" 
 				android:text="" 
+				android:inputType="text"
 				android:layout_width="fill_parent" 
 				android:layout_height="wrap_content">
 				<requestFocus/>
@@ -69,7 +70,7 @@
 			
 			<LinearLayout android:id="@+id/LinearLayout01" 
 				android:layout_width="fill_parent" 
-				android:layout_height="wrap_content"
+				android:layout_height="0dip"
 	  			android:layout_weight="1"
 	  			android:layout_gravity="top"
 				>
@@ -77,13 +78,13 @@
 					android:text="@string/button_save"
 					android:layout_weight="1" 
 					android:layout_width="wrap_content" 
-					android:layout_height="wrap_content">
+					android:layout_height="0dip">
 				</Button>
 				<Button android:id="@+id/feedprops_button_cancel" 
 					android:text="@string/button_cancel" 
 					android:layout_weight="1" 
 					android:layout_width="wrap_content" 
-					android:layout_height="wrap_content">
+					android:layout_height="0dip">
 				</Button>
 			</LinearLayout>
 		
