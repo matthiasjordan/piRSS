@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<string name="app_name">piRSS</string>
 <string name="mainprefs_autopoll_summary">Die Feeds automatisch abrufen, für die ein automatisches Abrufen konfiguriert ist.</string>
 <string name="mainprefs_autopoll">Automatisch abrufen</string>
 <string name="feedlist_menu_add">&quot;Feed hinzufügen&quot;</string>
