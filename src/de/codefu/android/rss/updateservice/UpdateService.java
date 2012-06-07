@@ -68,13 +68,15 @@ public class UpdateService extends IntentService {
             final Uri uri = FeedProvider.CONTENT_URI;
             final Cursor feeds = getContentResolver().query(uri, null, null, null, null);
             if (feeds != null) {
+                final  int ciLPDate = feeds.getColumnIndex(FeedProvider.FEEDS_COL_LASTPOLLDATE);
                 final int ciUrl = feeds.getColumnIndex(FeedProvider.FEEDS_COL_URL);
                 final int ciId = feeds.getColumnIndex("_id");
                 while (feeds.moveToNext()) {
                     final long id = feeds.getLong(ciId);
                     final String urlStr = feeds.getString(ciUrl);
+                    final long lastPollDateMs = feeds.getLong(ciLPDate);
                     Log.i("UpdateService", "Polling " + id + " - " + urlStr);
-                    poll(id, urlStr);
+                    poll(id, urlStr, lastPollDateMs);
                 }
                 feeds.close();
             }
@@ -85,7 +87,8 @@ public class UpdateService extends IntentService {
             if (feed != null) {
                 if (feed.moveToFirst()) {
                     final String urlStr = feed.getString(feed.getColumnIndex(FeedProvider.FEEDS_COL_URL));
-                    poll(feedId, urlStr);
+                    final long lastPollDateMs = feed.getLong(feed.getColumnIndex(FeedProvider.FEEDS_COL_LASTPOLLDATE));
+                    poll(feedId, urlStr, lastPollDateMs);
                 }
                 feed.close();
             }
@@ -109,14 +112,15 @@ public class UpdateService extends IntentService {
      *            the ID of the feed to poll
      * @param urlStr
      *            the URL of the feed's data
+     * @param lastPollDateMs 
      */
-    private void poll(final long feedId, final String urlStr) {
+    private void poll(final long feedId, final String urlStr, long lastPollDateMs) {
         if (urlStr == null) {
             return;
         }
 
         final UrlHttpRetriever retriever = new UrlHttpRetriever();
-        final String responseBody = retriever.retrieveHttpContent(urlStr, CONNECT_TIMEOUT_MS, DOWNLOAD_TIMEOUT_MS);
+        final String responseBody = retriever.retrieveHttpContent(urlStr, lastPollDateMs, CONNECT_TIMEOUT_MS, DOWNLOAD_TIMEOUT_MS);
         if (responseBody != null) {
             final Intent i = ServiceComm.createInsertIntent(this, feedId, responseBody);
             Log.i("UpdateService", "starting Insert service for feed " + feedId);

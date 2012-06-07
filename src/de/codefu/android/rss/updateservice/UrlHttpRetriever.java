@@ -45,6 +45,9 @@ class UrlHttpRetriever {
      * 
      * @param urlStr
      *            the URL of the remote resource to download
+     * @param lastPollDateMs
+     *            last poll date in milliseconds (see
+     *            {@link System#currentTimeMillis()})
      * @param timeoutMs
      *            the timeout in milliseconds after which to terminate the
      *            download attempt
@@ -52,7 +55,7 @@ class UrlHttpRetriever {
      *            how long a download may last in milliseconds
      * @return
      */
-    public String retrieveHttpContent(String urlStr, int timeoutMs, int maxTransferTimeMs) {
+    public String retrieveHttpContent(String urlStr, long lastPollDateMs, int timeoutMs, int maxTransferTimeMs) {
 
         URL url;
         try {
@@ -67,6 +70,8 @@ class UrlHttpRetriever {
         String result = null;
         try {
             urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setUseCaches(true);
+            urlConnection.setIfModifiedSince(lastPollDateMs);
             urlConnection.setConnectTimeout(timeoutMs);
             killThread = new KillThread(urlConnection, maxTransferTimeMs);
             killThread.start();
