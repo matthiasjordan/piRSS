@@ -69,7 +69,7 @@ public class UpdateService extends IntentService {
             final Uri uri = FeedProvider.CONTENT_URI;
             final Cursor feeds = getContentResolver().query(uri, null, null, null, null);
             if (feeds != null) {
-                final  int ciLPDate = feeds.getColumnIndex(FeedProvider.FEEDS_COL_LASTPOLLDATE);
+                final int ciLPDate = feeds.getColumnIndex(FeedProvider.FEEDS_COL_LASTPOLLDATE);
                 final int ciUrl = feeds.getColumnIndex(FeedProvider.FEEDS_COL_URL);
                 final int ciId = feeds.getColumnIndex("_id");
                 while (feeds.moveToNext()) {
@@ -113,7 +113,7 @@ public class UpdateService extends IntentService {
      *            the ID of the feed to poll
      * @param urlStr
      *            the URL of the feed's data
-     * @param lastPollDateMs 
+     * @param lastPollDateMs
      */
     private void poll(final long feedId, final String urlStr, long lastPollDateMs) {
         if (urlStr == null) {
@@ -121,18 +121,22 @@ public class UpdateService extends IntentService {
         }
 
         final UrlHttpRetriever retriever = new UrlHttpRetriever();
-        final String responseBody = retriever.retrieveHttpContent(urlStr, lastPollDateMs, CONNECT_TIMEOUT_MS, DOWNLOAD_TIMEOUT_MS);
+        final String responseBody = retriever.retrieveHttpContent(urlStr, lastPollDateMs, CONNECT_TIMEOUT_MS,
+                        DOWNLOAD_TIMEOUT_MS);
         if (responseBody != null) {
             touchFeed(feedId);
-            final Intent i = ServiceComm.createInsertIntent(this, feedId, responseBody);
-            Log.i("UpdateService", "starting Insert service for feed " + feedId);
-            WakeLockHolder.getInstance().acquire(this);
-            startService(i);
+            if (responseBody.length() != 0) {
+                final Intent i = ServiceComm.createInsertIntent(this, feedId, responseBody);
+                Log.i("UpdateService", "starting Insert service for feed " + feedId);
+                WakeLockHolder.getInstance().acquire(this);
+                startService(i);
+            }
         }
         else {
             ServiceComm.sendPollingProblemBroadcast(this, feedId);
         }
     }
+
 
     private void touchFeed(long feedId) {
         ContentValues cv = new ContentValues();
