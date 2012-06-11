@@ -53,7 +53,7 @@ class UrlHttpRetriever {
      *            download attempt
      * @param maxTransferTimeMs
      *            how long a download may last in milliseconds
-     * @return
+     * @return what could be downloaded at the given URL as a String, or null, if an error occurred
      */
     public String retrieveHttpContent(String urlStr, long lastPollDateMs, int timeoutMs, int maxTransferTimeMs) {
 
@@ -79,6 +79,11 @@ class UrlHttpRetriever {
             final String encoding = getEncodingFromStream(inputStream);
             Log.i("UrlHR", "encoding " + encoding);
             result = Utils.readStream(inputStream, encoding);
+            int responseCode = urlConnection.getResponseCode();
+            if (responseCode == 304) {
+                // Not Modified
+                return "";
+            }
         }
         catch (IOException e) {
             return null;

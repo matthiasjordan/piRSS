@@ -103,9 +103,13 @@ public class FeedProvider extends ContentProvider {
      */
     public static final long ALL_FEEDS = -1;
     /**
+     * The URL root used as a prefix for all FeedProvider URLs.
+     */
+    private static final String URL_ROOT = "content://de.codefu.rss.feedprovider";
+    /**
      * The content URI used to query this provider.
      */
-    public static final Uri CONTENT_URI = Uri.parse("content://de.codefu.rss.feedprovider");
+    public static final Uri CONTENT_URI = Uri.parse(URL_ROOT);
     /**
      * The fragment used to designate that the big feeds table is requested that
      * includes number of items and number of items read.
@@ -118,7 +122,7 @@ public class FeedProvider extends ContentProvider {
     /**
      * Convenience constant for querying the fancy feed cursor.
      */
-    public static final Uri FEEDS_FANCY_URI = Uri.parse("content://de.codefu.rss.feedprovider/#" + FANCY_FRAGMENT);
+    public static final Uri FEEDS_FANCY_URI = Uri.parse(URL_ROOT + "/#" + FANCY_FRAGMENT);
     /**
      * The data type supported by the provider.
      */
@@ -357,7 +361,6 @@ public class FeedProvider extends ContentProvider {
             }
         }
 
-        cv.put(FEEDS_COL_LASTPOLLDATE, System.currentTimeMillis());
         db.getWritableDatabase().update(FEEDS_NAME, cv, "_id=?", new String[] {
             Long.toString(id)
         });

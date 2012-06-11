@@ -20,6 +20,7 @@ package de.codefu.android.rss.updateservice;
 
 import android.app.IntentService;
 import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -122,6 +123,7 @@ public class UpdateService extends IntentService {
         final UrlHttpRetriever retriever = new UrlHttpRetriever();
         final String responseBody = retriever.retrieveHttpContent(urlStr, lastPollDateMs, CONNECT_TIMEOUT_MS, DOWNLOAD_TIMEOUT_MS);
         if (responseBody != null) {
+            touchFeed(feedId);
             final Intent i = ServiceComm.createInsertIntent(this, feedId, responseBody);
             Log.i("UpdateService", "starting Insert service for feed " + feedId);
             WakeLockHolder.getInstance().acquire(this);
@@ -132,4 +134,10 @@ public class UpdateService extends IntentService {
         }
     }
 
+    private void touchFeed(long feedId) {
+        ContentValues cv = new ContentValues();
+        cv.put(FeedProvider.FEEDS_COL_LASTPOLLDATE, System.currentTimeMillis());
+        Uri uri = ContentUris.withAppendedId(FeedProvider.CONTENT_URI, feedId);
+        getContentResolver().update(uri, cv, null, null);
+    }
 }
