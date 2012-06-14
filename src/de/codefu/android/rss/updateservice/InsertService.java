@@ -70,6 +70,8 @@ public class InsertService extends IntentService implements FeedHandlerClient {
             if (cleanHtml != VALUE_UNSET) {
                 final TimeZone tz = TimeZone.getDefault();
                 process(ic.content, ic.feedId, new FeedHandler(ic.feedId, cleanHtml, this, tz));
+                touchFeed(ic.feedId);
+
                 ServiceComm.sendDataChangedBroadcast(this);
             }
         }
@@ -99,10 +101,12 @@ public class InsertService extends IntentService implements FeedHandlerClient {
 
 
     private void process(final String content, final long feedId, final FeedHandler feedHandler) {
-        processXml(content, feedId, feedHandler);
-        Uri uri = ContentUris.withAppendedId(ItemProvider.CONTENT_URI_FEED, feedId);
-        uri = uri.buildUpon().encodedFragment("move").build();
-        getContentResolver().insert(uri, null);
+        if ((content != null) && (content.length() != 0)) {
+            processXml(content, feedId, feedHandler);
+            Uri uri = ContentUris.withAppendedId(ItemProvider.CONTENT_URI_FEED, feedId);
+            uri = uri.buildUpon().encodedFragment("move").build();
+            getContentResolver().insert(uri, null);
+        }
     }
 
 
@@ -165,4 +169,11 @@ public class InsertService extends IntentService implements FeedHandlerClient {
         getContentResolver().update(uri, cv, null, null);
     }
 
+
+    private void touchFeed(long feedId) {
+        ContentValues cv = new ContentValues();
+        cv.put(FeedProvider.FEEDS_COL_LASTPOLLDATE, System.currentTimeMillis());
+        Uri uri = ContentUris.withAppendedId(FeedProvider.CONTENT_URI, feedId);
+        getContentResolver().update(uri, cv, null, null);
+    }
 }
