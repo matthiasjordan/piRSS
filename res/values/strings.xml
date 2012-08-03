@@ -58,8 +58,10 @@
 <string name="itemlist_context_unkeep">Not a keeper</string>
 <string name="item_menu_keeper">Make this a keeper!</string>
 <string name="item_menu_unkeep">Unkeep this</string>
-<string name="about_text">piRSS 1.0.1\n
-\nCopyright © 2011 Matthias Jordan
+<string name="item_menu_share">Share</string>
+<string name="share_subject">Article on #1</string>
+<string name="about_text">piRSS 1.1\n
+\nCopyright © 2011-2012 Matthias Jordan
 \nThis is free software placed under the GNU GPLv3.
 \n
 \nPlease consider donating to

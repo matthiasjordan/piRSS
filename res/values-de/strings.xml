@@ -56,8 +56,10 @@
 <string name="itemlist_context_unkeep">Nicht mehr behalten</string>
 <string name="item_menu_keeper">Will ich behalten!</string>
 <string name="item_menu_unkeep">Nicht mehr behalten</string>
-<string name="about_text">piRSS 1.0.1\n
-\nCopyright © 2011 Matthias Jordan
+<string name="item_menu_share">Teilen</string>
+<string name="share_subject">Artikel bei #1</string>
+<string name="about_text">piRSS 1.1\n
+\nCopyright © 2011-2012 Matthias Jordan
 \nDies ist freie Software, veröffentlicht unter der GNU GPLv3.
 \n
 \nNett wäre eine Spende an

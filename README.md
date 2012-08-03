@@ -9,6 +9,7 @@ piRSS is an Android RSS reader that
 * can keep items so they don't get purged
 * has a widget
 * encourages users to extend the code
+* can share articles
 
 
 License

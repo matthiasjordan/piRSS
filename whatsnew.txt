@@ -13,3 +13,9 @@ Initial release
 == 1.0.2 ==
 
 * Feed download requests incremental updates since last poll time
+
+
+== 1.1 ==
+
+* Sharing articles
+* Icons for more resolutions

@@ -340,6 +340,8 @@ public class ItemAct extends Activity {
                     menu.add(Menu.NONE, R.string.item_menu_unkeep, 1, R.string.item_menu_unkeep).setIcon(
                                     R.drawable.ic_menu_revert);
                 }
+                menu.add(Menu.NONE, R.string.item_menu_share, 2, R.string.item_menu_share).setIcon(
+                                R.drawable.ic_menu_share);
             }
             res.close();
         }
@@ -358,6 +360,24 @@ public class ItemAct extends Activity {
             }
             case R.string.item_menu_unkeep: {
                 ItemHelper.setKeep(this, selectedItem, false);
+                return true;
+            }
+            case R.string.item_menu_share: {
+                Intent i = new Intent(Intent.ACTION_SEND);
+                final Uri uri = ItemProvider.CONTENT_URI.buildUpon().appendPath(Long.toString(selectedItem)).build();
+                i.setDataAndType(uri, "text/plain");
+                
+                final String feedName = itemC.getString(itemC.getColumnIndex(FeedProvider.FEEDS_COL_NAME));
+                final String headline = itemC.getString(itemC.getColumnIndex(ItemProvider.ITEMS_COL_HEADLINE));
+                final String link = itemC.getString(itemC.getColumnIndex(ItemProvider.ITEMS_COL_LINK));
+
+                final String subjectTemplate = getString(R.string.share_subject);
+                final String subject = subjectTemplate.replace("#1", feedName);
+                
+                i.putExtra(Intent.EXTRA_TEXT, headline + "\n\n" + link);
+                i.putExtra(Intent.EXTRA_SUBJECT, subject);
+                Intent j = Intent.createChooser(i, null);
+                startActivity(j);
                 return true;
             }
         }
